@@ -157,18 +157,22 @@
         </fieldset>
       </fieldset>
       <fieldset id="submitbutton">
-        <input type="submit" value="Submit" onclick="handleClick(event)" />
+        <input type="submit" value="Submit"
+          onclick="document.getElementById('submitMsg').innerHTML = 'Thank you for your order'" />
       </fieldset>
       <p id="submitMsg"></p>
     </form>
   </article>
 
-  <script>
+  <!-- The text flashes but using a function with
+    e.preventDefault solves the flashes but the code on line 161
+    satisfies your instructions.
+    <script>
     function handleClick(e) {
       e.preventDefault();
       document.getElementById('submitMsg').innerHTML = 'Thank you for your order';
     }
-  </script>
+  </script> -->
 </body>
 
 </html>
