@@ -4,7 +4,7 @@
 
       Application to write a list of customer reviews
       Author: Fareeda Anderson
-      Date:   30 January 202
+      Date:   04 Feb 2022
 */
 
 let reviewers = ["WillHa85", "GoldFry26", "Mittens41", "Tompkins8"];
