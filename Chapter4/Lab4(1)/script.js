@@ -6,12 +6,11 @@
       Author: Fareeda Anderson
       Date:   07 Feb 2022
 
-      
 */
 
 // Global Constants
-const COST_PER_LB = 50;
-const COST_PER_MILE = 75;
+const COST_PER_LB = 0.50;
+const COST_PER_MILE = 0.75;
 const SETUP_COST = 500;
 
 // Global Variables
@@ -29,18 +28,31 @@ document.getElementById("setupBox").onclick = calcTotal;
 function calcTotal() {
    let totalCost = 0;      // Set the initial estimate to $0
    msgBox.innerHTML = "";  // Erase any warnings in the message box
-   
 
-      totalCost += wgtBox.value * COST_PER_LB;      
+   try {
+      if (!(wgtBox.value > 0)) {
+         throw "!! Enter a positive weight";
+      } else {
+         totalCost += wgtBox.value * COST_PER_LB;
+      }
+   } catch (err) {
+      msgBox.innerHTML = "!! Enter a positive weight";
+   }
 
+   try {
+      if (!(distBox.value > 0)) {
+         throw "!! Enter a positive mileage";
+      } else {
+         totalCost += distBox.value * COST_PER_MILE;
+      }
+   } catch (err) {
+      msgBox.innerHTML = "!! Enter a positive mileage";
+   }
 
-      totalCost += distBox.value * COST_PER_MILE;   
-  
-   
    if (document.getElementById("setupBox").checked) {
       totalCost += SETUP_COST
    }
-   
+
    // Display the moving cost estimate in the totalBox, formatted as currency
    document.getElementById("totalBox").innerHTML = formatCurrency(totalCost);
 }
