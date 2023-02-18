@@ -32,9 +32,10 @@ function calcTotal() {
    try {
       if (!(wgtBox.value > 0)) {
          throw "!! Enter a positive weight";
-      } else {
-         totalCost += wgtBox.value * COST_PER_LB;
       }
+
+      totalCost += wgtBox.value * COST_PER_LB;
+
    } catch (err) {
       msgBox.innerHTML = "!! Enter a positive weight";
    }
@@ -42,9 +43,10 @@ function calcTotal() {
    try {
       if (!(distBox.value > 0)) {
          throw "!! Enter a positive mileage";
-      } else {
-         totalCost += distBox.value * COST_PER_MILE;
       }
+
+      totalCost += distBox.value * COST_PER_MILE;
+
    } catch (err) {
       msgBox.innerHTML = "!! Enter a positive mileage";
    }
@@ -59,7 +61,7 @@ function calcTotal() {
 
 
 
- // Function to display a numeric value as a text string in the format $##.## 
- function formatCurrency(value) {
-    return "$" + value.toFixed(2);
- }
+// Function to display a numeric value as a text string in the format $##.## 
+function formatCurrency(value) {
+   return "$" + value.toFixed(2);
+}
